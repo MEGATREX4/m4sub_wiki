@@ -71,6 +71,7 @@ const getLocalizedText = (key: string) => {
   gap: 15px;
   padding: 22.5px;
   border-radius: 12px;
+  max-width: 100%;
 }
 
 .crafting-grid {
@@ -131,5 +132,12 @@ const getLocalizedText = (key: string) => {
   font-family: "Minecraft", sans-serif;
   border: 1.5px solid #fff;
 }
-</style>
 
+@media screen and (max-width: 600px) {
+  .crafting-container {
+    flex-direction: column;
+  }
+  
+}
+
+</style>
