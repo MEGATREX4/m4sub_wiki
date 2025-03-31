@@ -137,7 +137,6 @@ const getLocalizedText = (key: string) => {
   .crafting-container {
     flex-direction: column;
   }
-  
 }
 
 </style>
