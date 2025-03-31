@@ -12,7 +12,6 @@ export default defineConfig({
   
   title: "M4sub Вікі",
   description: "Вікі по майнкрафт серверу m4sub",
-  base: '/m4sub_wiki/',
   themeConfig: {
 
     nav: [
