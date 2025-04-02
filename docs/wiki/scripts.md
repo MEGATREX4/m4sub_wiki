@@ -1,4 +1,4 @@
-# Crafting Example
+# Скрипти
 
 <CraftingGrid 
   :recipe="['minecraft:iron_ingot', 'minecraft:iron_ingot', 'minecraft:iron_ingot', '', 'minecraft:stick', '', '', 'minecraft:stick', '']" 
