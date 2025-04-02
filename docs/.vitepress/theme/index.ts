@@ -1,20 +1,21 @@
-// https://vitepress.dev/guide/custom-theme
-import { h } from 'vue'
+// index.ts
+import { h } from 'vue'  // ✅ Import h
 import type { Theme } from 'vitepress'
 import DefaultTheme from 'vitepress/theme'
 import './style.css'
 import CraftingGrid from '../theme/components/CraftingGrid.vue'
+import NotFound from './NotFound.vue'
 
 export default {
   extends: DefaultTheme,
   Layout: () => {
     return h(DefaultTheme.Layout, null, {
-      // https://vitepress.dev/guide/extending-default-theme#layout-slots
+      'not-found': () => h(NotFound)  // ✅ Ensure 'not-found' is in quotes
     })
   },
   
-  enhanceApp({ app, router, siteData }) {
-    // Register CraftingGrid globally
+  enhanceApp({ app }) {
     app.component('CraftingGrid', CraftingGrid)
   }
 } satisfies Theme
+
