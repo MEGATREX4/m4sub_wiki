@@ -1,6 +1,6 @@
 <script setup>
 import { useRouter } from 'vitepress'
-import { onMounted, computed } from 'vue'
+import { computed, onMounted } from 'vue'
 
 const router = useRouter()
 
@@ -16,7 +16,7 @@ const prefillContent = computed(() => {
 
 // Construct the GitHub new file URL with prefilled content
 const githubNewUrl = computed(() => {
-  return `https://github.com/MEGATREX4/MTTutorials/new/main/docs/${currentPath.value}.md?value=${prefillContent.value}`
+  return `https://github.com/MEGATREX4/m4sub_wiki/new/main/docs/${currentPath.value}.md?value=${prefillContent.value}`
 })
 
 // Function to open GitHub with the new page
@@ -25,12 +25,11 @@ const createPage = () => {
 }
 </script>
 
-
 <template>
   <div class="not-found-container">
     <div class="not-found">
       <p class="code">404</p>
-      <h1 class="title">Сторінка ще не створена</h1>
+      <h1 class="title">СТОРІНКИ НЕ ІСНУЄ АБО ВОНА ЩЕ НЕ СТВОРЕНА</h1>
       <div class="divider"></div>
       <blockquote class="quote">
         Ви можете створити її, або спробувати пошукати потрібну сторінку по іншому.
@@ -49,6 +48,7 @@ const createPage = () => {
   justify-content: center;
   align-items: center;
   height: calc(100vh - 129px);
+  transition: background-color 0.5s ease-in-out;
 }
 
 .not-found {
@@ -58,12 +58,14 @@ const createPage = () => {
 
 .code {
   font-size: 6rem;
+  margin-bottom: 4rem;
   color: #ff5555;
   font-weight: bold;
 }
 
 .title {
   font-size: 2rem;
+  padding-bottom: 10px;
 }
 
 .divider {
@@ -106,3 +108,4 @@ const createPage = () => {
   color: white;
 }
 </style>
+

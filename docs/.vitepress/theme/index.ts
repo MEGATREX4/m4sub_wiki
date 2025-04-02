@@ -10,7 +10,7 @@ export default {
   extends: DefaultTheme,
   Layout: () => {
     return h(DefaultTheme.Layout, null, {
-      'not-found': () => h(NotFound)  // ✅ Ensure 'not-found' is in quotes
+      'not-found': () => h(NotFound)
     })
   },
   
