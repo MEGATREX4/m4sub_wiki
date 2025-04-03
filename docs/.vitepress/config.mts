@@ -43,6 +43,23 @@ export default defineConfig(
           }
         }
       },
+      outline: {
+        label: 'У цьому параграфі',
+        level: 'deep',
+    },
+  
+    docFooter: {
+        prev: 'Попередня сторінка',
+        next: 'Наступна сторінка',
+    },
+  
+    lastUpdated: {
+        text: 'Оновлено в',
+        formatOptions: {
+            dateStyle: 'full',
+            timeStyle: 'medium'
+        }
+    },
       socialLinks: [
         { icon: 'twitch', link: 'https://twitch.tv/MEGATREX4' }
       ],
