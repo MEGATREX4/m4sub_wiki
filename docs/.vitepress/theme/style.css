@@ -137,3 +137,11 @@
   --docsearch-primary-color: var(--vp-c-brand-1) !important;
 }
 
+.missing-page {
+  color: red !important;
+  text-decoration: underline;
+}
+
+.checking-page {
+  opacity: 0.5;
+}

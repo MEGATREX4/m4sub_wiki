@@ -11,5 +11,8 @@
     "docs:preview": "vitepress preview docs",
     "docs:run": "vitepress build docs && vitepress preview docs",
     "deploy": "npm run docs:build && gh-pages -d m4sub_wiki/.vitepress/dist --no-history"
+  },
+  "dependencies": {
+    "markdown-it": "^14.1.0"
   }
 }
