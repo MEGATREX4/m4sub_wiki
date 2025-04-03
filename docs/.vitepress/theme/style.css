@@ -75,15 +75,15 @@
  * -------------------------------------------------------------------------- */
 
 :root {
-  --vp-button-brand-border: transparent;
-  --vp-button-brand-text: var(--vp-c-white);
-  --vp-button-brand-bg: var(--vp-c-brand-3);
-  --vp-button-brand-hover-border: transparent;
-  --vp-button-brand-hover-text: var(--vp-c-white);
-  --vp-button-brand-hover-bg: var(--vp-c-brand-2);
-  --vp-button-brand-active-border: transparent;
-  --vp-button-brand-active-text: var(--vp-c-white);
-  --vp-button-brand-active-bg: var(--vp-c-brand-1);
+  --vp-button-brand-border: red;
+  --vp-button-brand-text: red;
+  --vp-button-brand-bg: red;
+  --vp-button-brand-hover-border: red;
+  --vp-button-brand-hover-text: red;
+  --vp-button-brand-hover-bg: red;
+  --vp-button-brand-active-border: red;
+  --vp-button-brand-active-text: red;
+  --vp-button-brand-active-bg: red;
 }
 
 /**
@@ -91,17 +91,17 @@
  * -------------------------------------------------------------------------- */
 
 :root {
-  --vp-home-hero-name-color: transparent;
+  --vp-home-hero-name-color: red;
   --vp-home-hero-name-background: -webkit-linear-gradient(
     120deg,
-    #bd34fe 30%,
-    #41d1ff
+    #397e45 30%,
+    #ff4741
   );
 
   --vp-home-hero-image-background-image: linear-gradient(
     -45deg,
-    #bd34fe 50%,
-    #47caff 50%
+    #2d8634 50%,
+    #ff5347 50%
   );
   --vp-home-hero-image-filter: blur(44px);
 }
@@ -137,11 +137,13 @@
   --docsearch-primary-color: var(--vp-c-brand-1) !important;
 }
 
-.missing-page {
-  color: red !important;
-  text-decoration: underline;
+/* Global styles or in a component-specific style block */
+a.link-not-found {
+  color: red !important;   /* Make the broken link text red */
+  text-decoration: none;   /* Optionally remove underline */
+  font-weight: bold;       /* Make it bold to highlight more */
 }
 
-.checking-page {
-  opacity: 0.5;
+a.link-not-found:hover {
+  color: darkred !important;   /* Change the color on hover for better visibility */
 }
