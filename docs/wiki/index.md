@@ -14,9 +14,8 @@
 8. **Самописні плагіни** — ми на сервері самостійно пишемо плагіни, скрипти та датапаки.
 <br>
 
-[Existing Page](/existing-page) сторінка яка існує
-[Missing Page](/not-existing-page) сторінка яка не існує
-
+<WikiLink page="modding-guide" />
+<WikiLink page="installation" />
 
 <br>
 <br>
