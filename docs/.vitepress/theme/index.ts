@@ -2,7 +2,8 @@ import { h } from 'vue'
 import DefaultTheme from 'vitepress/theme'
 import NotFound from './NotFound.vue'
 import CraftingGrid from '../theme/components/CraftingGrid.vue'
-import WikiLink from './components/WikiLink.vue'
+import Item from '../theme/components/Item.vue'
+import './style.css'
 
 export default {
 
@@ -13,7 +14,8 @@ export default {
   }),
 
   enhanceApp({ app }) {
-    app.component('CraftingGrid', CraftingGrid),
-    app.component('WikiLink', WikiLink)
+    app.component('CraftingGrid', CraftingGrid)
+    app.component('Item', Item)
   }
 }
+

@@ -1,4 +1,5 @@
 <script setup lang="ts">
+// CraftingGrid.vue
 import { ref, onMounted } from 'vue'
 
 // Define props for the recipe and result item

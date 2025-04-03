@@ -107,17 +107,5 @@ const createPage = () => {
   background-color: #ff5555;
   color: white;
 }
-
-/* Global styles or in a component-specific style block */
-a.link-not-found {
-  color: red !important;   /* Make the broken link text red */
-  text-decoration: none;   /* Optionally remove underline */
-  font-weight: bold;       /* Make it bold to highlight more */
-}
-
-a.link-not-found:hover {
-  color: darkred !important;   /* Change the color on hover for better visibility */
-}
-
 </style>
 

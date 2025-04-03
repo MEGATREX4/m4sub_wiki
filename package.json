@@ -16,6 +16,7 @@
     "deploy": "npm run docs:build && gh-pages -d m4sub_wiki/.vitepress/dist --no-history"
   },
   "dependencies": {
-    "markdown-it-mark": "^4.0.0"
+    "markdown-it-mark": "^4.0.0",
+    "minecraft-assets": "^1.15.0"
   }
 }
