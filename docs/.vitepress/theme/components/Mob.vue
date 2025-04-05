@@ -48,6 +48,7 @@ const getMobImageUrl = (mob: string) => {
   background-color: #c0c0c0;
   display: flex;
   flex-direction: column;
+  margin: 20px;
 }
 
 .window-header {
@@ -57,6 +58,7 @@ const getMobImageUrl = (mob: string) => {
   font-weight: bold;
   text-align: left;
   border-bottom: 2px solid #c0c0c0;
+  color: #fff;
 }
 
 .mob-body {
@@ -72,5 +74,30 @@ const getMobImageUrl = (mob: string) => {
   width: 100%;
   height: auto;
   image-rendering: pixelated;
+}
+
+/* 📱 Адаптація для мобільних пристроїв */
+@media (max-width: 960px) {
+  .mob-window {
+    width: 100%!important;
+    margin: 10px 0!important;
+  }
+
+  .mob-body {
+    height: auto!important;
+    flex-direction: column!important;
+    padding: 5px!important;
+  }
+
+  .mob-body img {
+    width: 100%!important;
+    max-width: 100%!important;
+  }
+
+  .window-header {
+    font-size: 16px!important;
+    text-align: center!important;
+    padding: 8px!important;
+  }
 }
 </style>

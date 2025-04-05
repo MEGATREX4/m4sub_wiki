@@ -6,7 +6,7 @@ export default defineConfig(
   withSidebar({
     head: [
       ['link', { rel: 'icon', href: 'https://github.com/MEGATREX4/m4sub_wiki/blob/main/docs/logo.png?raw=true' }],
-      ['meta', { name: 'viewport', content: 'width=device-width,initial-scale=1' }],
+
     ],
     lang: 'uk_UA',
     title: "M4sub Вікі",

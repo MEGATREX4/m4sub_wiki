@@ -589,3 +589,10 @@
 p img {
   max-width: 50%;
 }
+
+@font-face {
+  font-family: 'Minecraft';
+  src: url('https://raw.githubusercontent.com/MEGATREX4/m4sub_wiki/main/assets/Minecraft.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}

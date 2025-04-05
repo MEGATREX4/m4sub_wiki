@@ -4,11 +4,12 @@ import { ref, onMounted } from 'vue'
 const props = defineProps<{
   id: string
   name?: string
+  warp?: 'left' | 'right' // нова пропса
 }>()
 
 const localization = ref<{ [key: string]: string }>({})
 const lang = 'uk_ua'
-const localizationFile = `https://raw.githubusercontent.com/InventivetalentDev/minecraft-assets/1.21.5/assets/minecraft/lang/${lang}.json`
+const localizationFile = `https://raw.githubusercontent.com/InventivetalentDev/m4sub_wiki/main/assets/lang/${lang}.json`
 
 onMounted(async () => {
   try {
@@ -31,7 +32,7 @@ const getStructureImageUrl = (id: string) => {
 </script>
 
 <template>
-  <div class="structure-window">
+  <div :class="['structure-window', { 'image-left': props.warp === 'left', 'image-right': props.warp === 'right' }]">
     <div class="window-header">
       {{ getLocalizedStructureName(props.id) }}
     </div>
@@ -53,10 +54,11 @@ const getStructureImageUrl = (id: string) => {
   display: flex;
   flex-direction: column;
   margin: 20px;
+  clear: both;
 }
 
 .window-header {
-  background-color: #7c9ab2;
+  background-color: #c97d79;
   padding: 4px 8px;
   font-size: 14px;
   font-weight: bold;
@@ -79,5 +81,43 @@ const getStructureImageUrl = (id: string) => {
   height: auto;
   object-fit: contain;
   image-rendering: pixelated;
+}
+
+/* Для warp */
+.image-left {
+  float: left;
+  margin-right: 15px;
+}
+
+.image-right {
+  float: right;
+  margin-left: 15px;
+}
+
+
+
+/* 📱 Адаптація для мобільних пристроїв */
+@media (max-width: 960px) {
+  .structure-window {
+    width: 100%!important;
+    margin: 10px 0!important;
+  }
+
+  .structure-body {
+    height: auto!important;
+    flex-direction: column!important;
+    padding: 5px!important;
+  }
+
+  .structure-body img {
+    width: 100%!important;
+    max-width: 100%!important;
+  }
+
+  .window-header {
+    font-size: 16px!important;
+    text-align: center!important;
+    padding: 8px!important;
+  }
 }
 </style>

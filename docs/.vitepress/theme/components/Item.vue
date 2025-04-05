@@ -99,14 +99,13 @@ const getLocalizedText = (key: string) => {
   bottom: -45px;
   left: 50%;
   transform: translateX(-50%);
-  background-color: rgba(0, 0, 0, 0.9);
+  background-color: #110215;
   color: #fff;
   padding: 7.5px 10.5px;
-  border-radius: 4.5px;
   font-size: 16.5px;
   white-space: nowrap;
   z-index: 10;
   font-family: "Minecraft", sans-serif;
-  border: 1.5px solid #fff;
+  border: 3px solid #220559;
 }
 </style>
