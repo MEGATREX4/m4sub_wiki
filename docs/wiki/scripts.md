@@ -1,13 +1,21 @@
-# Скрипти
+# Компоненти нашого вікі
 
-<CraftingGrid 
-  :recipe="['minecraft:iron_ingot', 'minecraft:iron_ingot', 'minecraft:iron_ingot', '', 'minecraft:stick', '', '', 'minecraft:stick', '']" 
-  :result="'minecraft:iron_sword'" 
-/>
+## Компонент для предметів
 
-## Recipe 2: Diamond Sword
+<Item item="minecraft:amethyst_shard" />
+
+## Компонент для крафтів
 
 <CraftingGrid 
   :recipe="['minecraft:diamond', 'minecraft:diamond', 'minecraft:diamond', '', 'minecraft:stick', '', '', 'minecraft:stick', '']" 
   :result="'minecraft:diamond_sword'" 
 />
+
+## Компонент для мобів
+
+<Mob mob="minecraft:axolotl" />
+
+## Компонент для структур
+
+<Structure id="minecraft:amethyst_geode_3" />
+<Structure id="minecraft:bastion_units_ramparts_1" name="Бастіон" />
