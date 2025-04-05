@@ -44,7 +44,7 @@ const getLocalizedText = (key: string) => {
         class="crafting-cell"
       >
         <div v-if="item" class="item" :data-tooltip="getLocalizedText(item)">
-          <img :src="`https://raw.githubusercontent.com/InventivetalentDev/minecraft-assets/1.21.5/assets/minecraft/textures/item/${item.replace('minecraft:', '')}.png`" :alt="item" />
+          <img :src="`https://raw.githubusercontent.com/MEGATREX4/m4sub_wiki/main/assets/items/${item.replace('minecraft:', '')}.png`" :alt="item" />
         </div>
       </div>
     </div>
@@ -57,7 +57,7 @@ const getLocalizedText = (key: string) => {
     </div>
     <div class="crafting-result">
       <div class="item" :data-tooltip="getLocalizedText(props.result)">
-        <img :src="`https://raw.githubusercontent.com/InventivetalentDev/minecraft-assets/1.21.5/assets/minecraft/textures/item/${props.result.replace('minecraft:', '')}.png`" :alt="props.result" />
+        <img :src="`https://raw.githubusercontent.com/MEGATREX4/m4sub_wiki/main/assets/items/${props.result.replace('minecraft:', '')}.png`" :alt="props.result" />
       </div>
     </div>
   </div>

@@ -26,7 +26,7 @@ onMounted(async () => {
 
 // Function to format the image URL from the item name
 const getItemImageUrl = (item: string) => {
-  return `https://raw.githubusercontent.com/InventivetalentDev/minecraft-assets/1.21.5/assets/minecraft/textures/item/${item.replace('minecraft:', '')}.png`
+  return `https://raw.githubusercontent.com/MEGATREX4/m4sub_wiki/main/assets/items/${item.replace('minecraft:', '')}.png`
 }
 
 // Function to get the localized name for the item

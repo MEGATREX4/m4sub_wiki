@@ -11,8 +11,8 @@
 Зібравши **8 Ехо уламків**, ви зможете створити **компас відновлення**. Цей компас дозволить вам отримати доступ до справжніх координат.
 
 <CraftingGrid 
-  :recipe="['minecraft:echo_shard', 'minecraft:echo_shard', 'minecraft:echo_shard', 'minecraft:echo_shard', 'minecraft:compass_00', 'minecraft:echo_shard', 'minecraft:echo_shard', 'minecraft:echo_shard', 'minecraft:echo_shard']" 
-  :result="'minecraft:recovery_compass_00'" 
+  :recipe="['minecraft:echo_shard', 'minecraft:echo_shard', 'minecraft:echo_shard', 'minecraft:echo_shard', 'minecraft:compass', 'minecraft:echo_shard', 'minecraft:echo_shard', 'minecraft:echo_shard', 'minecraft:echo_shard']" 
+  :result="'minecraft:recovery_compass'" 
 />
 
 ### Крок 3: Оновлення прав на сервері
