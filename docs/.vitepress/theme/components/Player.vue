@@ -6,7 +6,8 @@ const props = defineProps<{
   username: string
   warp?: 'left' | 'right'
   descriptions?: string[]
-  role?: string // Додаємо роль
+  role?: string
+  roleIcon?: string
 }>()
 
 // Define refs for localization
@@ -100,7 +101,7 @@ watchEffect(() => {
 
     <!-- Display the role if it exists -->
     <div v-if="props.role" class="wiki-role">
-      Роль: <i class="role-icon" :class="props.role"></i>{{ props.role }}
+      Роль: <i class="role-icon" :class="props.roleIcon"></i>{{ props.role }}
     </div>
 
     <!-- Block for descriptions -->
@@ -125,6 +126,8 @@ watchEffect(() => {
   background-position: center;
   margin-right: 5px; /* Space between icon and role text */
   vertical-align: middle;
+  image-rendering: pixelated;
+  font-size: 1.5em;
 }
 
 /* Example role styling */
@@ -135,9 +138,16 @@ watchEffect(() => {
   background-color: #1b1b1f;
 }
 
-.role-icon, .admin {
-  background-image: url(https://raw.githubusercontent.com/MEGATREX4/m4sub_wiki/main/assets/icons/admin.png);
-  image-rendering: pixelated;
-  font-size: 1.5em;
+.role-icon .admin {
+  background-image: url(https://raw.githubusercontent.com/MEGATREX4/m4sub_wiki/main/assets/icons/адмін.png);
 }
+
+.role-icon .moderator {
+  background-image: url(https://raw.githubusercontent.com/MEGATREX4/m4sub_wiki/main/assets/icons/модератор.png);
+}
+
+.role-icon .helper {
+  background-image: url(https://raw.githubusercontent.com/MEGATREX4/m4sub_wiki/main/assets/icons/помічник.png);
+}
+
 </style>
