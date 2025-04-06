@@ -100,16 +100,29 @@
 
 ## Компонент для гравців
 
-<Player 
-      username="Notch" 
-      warp="left" 
-      name="Notch" 
-      :descriptions="[
-        'Creator of Minecraft',
-        'Also known as Markus Persson',
-        'Founder of Mojang'
-      ]" 
-    />
+### По центру
+<Player username="Notch" :descriptions="['Creator of Minecraft', 'Also known as Markus Persson']" />
+
+#### Приклад
+```html
+<Player username="Notch" :descriptions="['Creator of Minecraft', 'Also known as Markus Persson']" />
+```
+
+### Зліва
+<Player username="Notch" warp="left" :descriptions="['Creator of Minecraft', 'Also known as Markus Persson']" />
+
+#### Приклад
+```html
+<Player username="Notch" warp="left" :descriptions="['Creator of Minecraft', 'Also known as Markus Persson']" />
+```
+
+### Справа
+<Player username="Notch" warp="right" :descriptions="['Creator of Minecraft', 'Also known as Markus Persson']" />
+
+#### Приклад
+```html
+<Player username="Notch" warp="right" :descriptions="['Creator of Minecraft', 'Also known as Markus Persson']" />
+```
 
 ## Компонент для структур
 

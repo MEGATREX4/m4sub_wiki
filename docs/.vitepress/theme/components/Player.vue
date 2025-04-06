@@ -1,17 +1,16 @@
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, watchEffect } from 'vue'
 
-// Define props for the player name
+// Define props for the player name, role and other options
 const props = defineProps<{
   username: string
   warp?: 'left' | 'right'
-  name?: string
   descriptions?: string[]
+  role?: string // Додаємо роль
 }>()
 
-// Define refs for localization and player data
+// Define refs for localization
 const localization = ref<{ [key: string]: string }>({})
-const playerImageUrl = ref<string>('') // Store image URL
 const lang = 'uk_ua'
 const localizationFile = `https://raw.githubusercontent.com/InventivetalentDev/minecraft-assets/1.21.5/assets/minecraft/lang/${lang}.json`
 
@@ -24,31 +23,70 @@ onMounted(async () => {
   } catch (error) {
     console.error(`Failed to load localization:`, error)
   }
-
-  // Fetch the player image URL from Crafatar API
-  await getPlayerImage(props.username)
 })
-
-// Function to fetch the player's image from Crafatar
-const getPlayerImage = async (username: string) => {
-  const apiUrl = `https://crafthead.net/body/Yevhen4.png`
-}
 
 // Function to get localized text
 const getLocalizedText = (key: string) => {
-  if (props.name) return props.name
-  const localizedKey = `player.${key.replace(':', '.')}`
-  return localization.value[localizedKey] || key
+  return props.username
 }
+
+// Use ref to make playerImageUrl reactive
+const playerImageUrl = ref<string | undefined>(undefined)
+
+async function getUUID(username: string) {
+  try {
+    const response = await fetch(`https://playerdb.co/api/player/minecraft/${username}`);
+    if (!response.ok) {
+      throw new Error('Користувача не знайдено');
+    }
+
+    const data = await response.json();
+
+    if (data.code !== 'player.found') {
+      throw new Error('Користувача не знайдено');
+    }
+
+    let uuid = data.data.player.id;
+
+    if (uuid.length === 32) {  // UUID без дефісів
+      uuid = uuid.replace(/(.{8})(.{4})(.{4})(.{4})(.{12})/, '$1-$2-$3-$4-$5');
+    }
+
+    console.log(`UUID для ${username}: ${uuid}`);
+    return uuid; // Повертаємо UUID
+  } catch (error) {
+    console.error('Помилка:', error);
+    return undefined; // Якщо не вдалося отримати UUID
+  }
+}
+
+// Function to get the player's skin image URL from Crafthead
+async function getPlayerImageUrl(username: string) {
+  try {
+    const uuid = await getUUID(username); 
+    if (uuid) {
+      playerImageUrl.value = `https://nmsr.nickac.dev/bust/${uuid}`; 
+    }
+  } catch (error) {
+    console.error('Failed to get player image URL:', error);
+  }
+}
+
+// Watch the username prop and fetch the image URL when the username changes
+watchEffect(() => {
+  if (props.username) {
+    getPlayerImageUrl(props.username);
+  }
+});
 </script>
 
 <template>
   <div
     :class="[ 
       'wiki-window', 
-      props.warp === 'left' ? 'image-left' : 
-      props.warp === 'right' ? 'image-right' : 
-      'image-center'
+      props.warp === 'left' ? 'image-left' :
+      props.warp === 'right' ? 'image-right' :
+      'image-center' 
     ]"
   >
     <div class="window-header">
@@ -56,9 +94,13 @@ const getLocalizedText = (key: string) => {
     </div>
 
     <div class="wiki-body">
-      <!-- Display player's image if available -->
-      <img v-if="playerImageUrl" :src="playerImageUrl" :alt="props.username" />
-      <div v-else>Loading...</div>
+      <!-- Display the player's skin image if available -->
+      <img v-if="playerImageUrl" :src="playerImageUrl" :alt="props.username" style="object-fit: cover!important; object-position: 0% 0%!important; height: 150px!important;" />
+    </div>
+
+    <!-- Display the role if it exists -->
+    <div v-if="props.role" class="wiki-role">
+      Роль: <i class="role-icon"></i>{{ props.role }}
     </div>
 
     <!-- Block for descriptions -->
@@ -71,3 +113,28 @@ const getLocalizedText = (key: string) => {
 
   <div v-if="props.warp" class="wiki-clearfix" />
 </template>
+
+<style scoped>
+/* Style for the role icon */
+.role-icon {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin-right: 5px; /* Space between icon and role text */
+  vertical-align: middle;
+}
+
+/* Example role styling */
+.wiki-role {
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+/* You can replace the URL with the appropriate image URL for the admin role */
+.wiki-role .role-icon {
+  background-image: url('https://example.com/path/to/admin-icon.png'); /* Example for Admin icon */
+}
+</style>
