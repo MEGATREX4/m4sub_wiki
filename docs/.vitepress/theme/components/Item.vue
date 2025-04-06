@@ -106,6 +106,6 @@ const getLocalizedText = (key: string) => {
   white-space: nowrap;
   z-index: 10;
   font-family: "Minecraft", sans-serif;
-  border: 3px solid #220559;
+  border: 6px double #220559;
 }
 </style>

@@ -22,7 +22,7 @@
 - `:recipe` — масив з 9 позицій (зліва направо, зверху вниз).
 - `:result` — результат крафту.
 
-**Приклад:**
+**Приклад**
 
 ```html
 <CraftingGrid 
@@ -46,8 +46,56 @@
 
 **Приклад використання:**
 
+### По центру
+<Mob mob="minecraft:axolotl" />
+
 ```html
 <Mob mob="minecraft:axolotl" />
+```
+
+### Зліва
+<Mob mob="minecraft:axolotl" warp="left" />
+
+
+#### Приклад
+```html
+<Mob mob="minecraft:axolotl" warp="left" /> 
+```
+
+### Справа
+<Mob mob="minecraft:axolotl" warp="right" />
+
+#### Приклад
+```html
+<Mob mob="minecraft:axolotl" warp="right" /> 
+```
+
+### Моб з описом
+<Mob
+  name="Скелет"
+  mob="minecraft:skeleton"
+  warp="right"
+  :descriptions="[
+    'Здоров\'я: 20',
+    'Атака: 2–5 (лук)',
+    'Не горить у воді',
+    'Спавн: в темряві, уночі'
+  ]"
+/>
+
+#### Приклад
+```html
+<Mob
+  name="Скелет"
+  mob="minecraft:skeleton"
+  warp="right"
+  :descriptions="[
+    'Здоров\'я: 20',
+    'Атака: 2–5 (лук)',
+    'Не горить у воді',
+    'Спавн: в темряві, уночі'
+  ]"
+/>
 ```
 
 ## Компонент для структур
@@ -56,18 +104,16 @@
 
 ### Зліва
 
-#### Приклад:
+#### Приклад
 <Structure id="minecraft:ancient_city_left" warp="left" name="Стародавнє місто" />
 ```html
 <Structure id="minecraft:ancient_city_left" warp="left" name="Стародавнє місто" />
 ```
 Текст обходить зображення структури. (обхід зображення працює тільки для ПК)
-
-<br><br><br><br>
 
 ### Справа
 
-#### Приклад:
+#### Приклад
 <Structure id="minecraft:stronghold_portal_room" warp="right" name="Енд Портал" />
 ```html
 <Structure id="minecraft:stronghold_portal_room" warp="right" name="Енд Портал" />
@@ -75,18 +121,43 @@
 
 Текст обходить зображення структури. (обхід зображення працює тільки для ПК)
 
-<br><br><br><br>
-
 ### По центру (за замовчуванням)
-#### Приклад:
+#### Приклад
 <Structure id="minecraft:woodland_mansion_1x2d4" name="Woodland Mansion" />
 
 ```html
 <Structure id="minecraft:woodland_mansion_1x2d4" name="Woodland Mansion" />
 ```
 
+### Структура з описом
+<Structure
+  id="minecraft:desert_well"
+  warp="right"
+  :descriptions="[
+    'Місце спавну: пустеля',
+    'Містить 1-2 блоки золота',
+    'Може мати біля себе генератор'
+  ]"
+/>
 
+#### Приклад
+```html
+<Structure
+  id="minecraft:desert_well"
+  warp="right"
+  :descriptions="[
+    'Місце спавну: пустеля',
+    'Містить 1-2 блоки золота',
+    'Може мати біля себе генератор'
+  ]"
+/>
+```
 
----
+## Компонент для форматування
 
-Ці компоненти значно спрощують візуальне представлення контенту з Minecraft та є інтерактивними елементами вашого сайту.
+### Очистка обтікання
+```html
+<Clear/>
+```
+
+Якщо після блоків з форматуванням зліва або справа ви хочете скинути форматування і наступний блок не обтікати текстом - використайте цей компонент і він вставить `div` блок що має клас `clear`, що вимкне обтікання текста.

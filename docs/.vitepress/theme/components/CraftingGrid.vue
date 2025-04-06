@@ -124,18 +124,23 @@ const getLocalizedText = (key: string) => {
   left: 50%;
   transform: translateX(-50%);
   background-color: #110215;
+  border: 6px double #220559;
   color: #fff;
   padding: 7.5px 10.5px;
   font-size: 16.5px;
   white-space: nowrap;
   z-index: 10;
   font-family: "Minecraft", sans-serif;
-  border: 3px solid #220559;
+  
 }
 
 @media screen and (max-width: 600px) {
   .crafting-container {
     flex-direction: column;
+  }
+  .crafting-arrow{
+    transform: rotate(90deg);
+
   }
 }
 

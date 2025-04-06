@@ -6,6 +6,8 @@ import Item from '../theme/components/Item.vue'
 import Structure from '../theme/components/Structure.vue'
 import Mob from '../theme/components/Mob.vue'
 
+import Clear from '../theme/components/Clear.vue'
+
 
 import './style.css'
 
@@ -22,6 +24,7 @@ export default {
     app.component('Item', Item)
     app.component('Structure', Structure)
     app.component('Mob', Mob)
+    app.component('Clear', Clear)
   }
 }
 

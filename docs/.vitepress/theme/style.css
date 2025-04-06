@@ -596,3 +596,131 @@ p img {
   font-weight: normal;
   font-style: normal;
 }
+
+footer{
+  clear: both!important;
+}
+
+h1, h2, h3 {
+  font-family: 'Minecraft';
+  clear: both;
+}
+
+h4, h5, h6, .outline-title, .outline-link, .VPLink .link .link, .text {
+  font-family: 'Minecraft';
+}
+
+
+
+.wiki-descriptions {
+  background-color: #3a3a3a;
+  padding: 8px 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.wiki-description-line {
+  font-size: 13px;
+  background-color: #130217;
+  border: 6px double #220559;
+  color: #fff;
+  line-height: 1.4;
+  padding: 4px;
+}
+
+.image-center {
+  display: block!important;
+  margin-left: auto!important;
+  margin-right: auto!important;
+  float: none!important;
+}
+
+
+.wiki-window {
+  width: 250px;
+  border: 3px solid #8B8B8B;
+  font-family: "Minecraft", sans-serif;
+  background-color: #c0c0c0;
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+  clear: both;
+}
+
+.window-header {
+  background-color: #c97d79;
+  padding: 4px 8px;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: left;
+  border-bottom: 2px solid #c0c0c0;
+  color: #fff;
+}
+
+.wiki-body {
+  background-color: #3a3a3a;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+  overflow: hidden;
+}
+
+.wiki-body img {
+  width: min(100%, 160px); /* обмежити максимальну ширину */
+}
+
+
+.wiki-body img {
+  height: auto;
+  object-fit: contain!important;
+  image-rendering: pixelated;
+}
+
+/* Для warp */
+.image-left {
+  float: left;
+  margin-right: 15px;
+}
+
+.image-right {
+  float: right;
+  margin-left: 15px;
+}
+
+
+
+/* 📱 Адаптація для мобільних пристроїв */
+@media (max-width: 960px) {
+  .wiki-window {
+    width: 100%!important;
+    margin: 10px 0!important;
+  }
+
+  .wiki-body {
+    height: auto!important;
+    flex-direction: column!important;
+    padding: 5px!important;
+  }
+
+  .wiki-body img {
+    width: 100%!important;
+    max-width: 100%!important;
+  }
+
+  .window-header {
+    font-size: 16px!important;
+    text-align: center!important;
+    padding: 8px!important;
+  }
+
+  .vp-adaptive-theme{
+    width: calc(100%)!important;
+    margin: 0 auto!important;
+    display: flex!important;
+    justify-content: center!important;
+    align-items: center!important;
+  }
+}
