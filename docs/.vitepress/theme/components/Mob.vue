@@ -12,7 +12,7 @@ const props = defineProps<{
 
 const localization = ref<{ [key: string]: string }>({})
 const lang = 'uk_ua'
-const localizationFile = `https://raw.githubusercontent.com/InventivetalentDev/m4sub_wiki/main/assets/lang/${lang}.json`
+const localizationFile = `https://raw.githubusercontent.com/InventivetalentDev/minecraft-assets/1.21.5/assets/minecraft/lang/${lang}.json`
 
 onMounted(async () => {
   try {

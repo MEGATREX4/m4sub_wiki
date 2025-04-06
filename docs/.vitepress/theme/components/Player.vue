@@ -11,9 +11,9 @@ const props = defineProps<{
 
 // Define refs for localization and player data
 const localization = ref<{ [key: string]: string }>({})
-const playerUuid = ref<string | null>(null)
+const playerImageUrl = ref<string>('') // Store image URL
 const lang = 'uk_ua'
-const localizationFile = ``
+const localizationFile = `https://raw.githubusercontent.com/InventivetalentDev/minecraft-assets/1.21.5/assets/minecraft/lang/${lang}.json`
 
 // Fetch localization data
 onMounted(async () => {
@@ -25,23 +25,13 @@ onMounted(async () => {
     console.error(`Failed to load localization:`, error)
   }
 
-  // Fetch player UUID
-  await getPlayerUUID(props.username)
+  // Fetch the player image URL from Crafatar API
+  await getPlayerImage(props.username)
 })
 
-// Fetch the UUID for a player by their username
-const getPlayerUUID = async (username: string) => {
-  try {
-    const response = await fetch(`https://api.mojang.com/users/profiles/minecraft/${username}`)
-    if (response.ok) {
-      const data = await response.json()
-      playerUuid.value = data.id
-    } else {
-      console.error(`Failed to fetch UUID for username: ${username}`)
-    }
-  } catch (error) {
-    console.error(`Error fetching UUID:`, error)
-  }
+// Function to fetch the player's image from Crafatar
+const getPlayerImage = async (username: string) => {
+  const apiUrl = `https://crafthead.net/body/Yevhen4.png`
 }
 
 // Function to get localized text
@@ -49,11 +39,6 @@ const getLocalizedText = (key: string) => {
   if (props.name) return props.name
   const localizedKey = `player.${key.replace(':', '.')}`
   return localization.value[localizedKey] || key
-}
-
-// Function to get the player's image URL
-const getPlayerImageUrl = () => {
-  return playerUuid.value ? `https://nmsr.nickac.dev/bust/${playerUuid.value}` : ''
 }
 </script>
 
@@ -71,7 +56,8 @@ const getPlayerImageUrl = () => {
     </div>
 
     <div class="wiki-body">
-      <img v-if="playerUuid" :src="getPlayerImageUrl()" :alt="props.username" />
+      <!-- Display player's image if available -->
+      <img v-if="playerImageUrl" :src="playerImageUrl" :alt="props.username" />
       <div v-else>Loading...</div>
     </div>
 
