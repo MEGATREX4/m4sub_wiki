@@ -22,6 +22,7 @@ export default defineConfig(
           locales: {
             root: {
               translations: {
+                menu: { openMenuAriaLabel: 'Відкрити пошук' },
                 button: { buttonText: 'Пошук', buttonAriaLabel: 'Пошук' },
                 modal: {
                   displayDetails: 'Показати деталі',
