@@ -100,7 +100,7 @@ watchEffect(() => {
 
     <!-- Display the role if it exists -->
     <div v-if="props.role" class="wiki-role">
-      Роль: <i class="role-icon"></i>{{ props.role }}
+      Роль: <i class="role-icon" :class="props.role"></i>{{ props.role }}
     </div>
 
     <!-- Block for descriptions -->
@@ -131,10 +131,13 @@ watchEffect(() => {
 .wiki-role {
   font-size: 1rem;
   font-weight: bold;
+  padding: 10px;
+  background-color: #1b1b1f;
 }
 
-/* You can replace the URL with the appropriate image URL for the admin role */
-.wiki-role .role-icon {
-  background-image: url('https://example.com/path/to/admin-icon.png'); /* Example for Admin icon */
+.role-icon, .admin {
+  background-image: url(https://raw.githubusercontent.com/MEGATREX4/m4sub_wiki/main/assets/icons/admin.png);
+  image-rendering: pixelated;
+  font-size: 1.5em;
 }
 </style>
