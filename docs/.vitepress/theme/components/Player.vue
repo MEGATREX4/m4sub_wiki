@@ -96,7 +96,7 @@ watchEffect(() => {
 
     <div class="wiki-body">
       <!-- Display the player's skin image if available -->
-      <img v-if="playerImageUrl" :src="playerImageUrl" :alt="props.username" style="object-fit: cover!important; object-position: 0% 0%!important; height: 150px!important;" />
+      <img v-if="playerImageUrl" :src="playerImageUrl" :alt="props.username" style="object-fit: cover!important; object-position: 0% 0%!important;" />
     </div>
 
     <!-- Display the role if it exists -->

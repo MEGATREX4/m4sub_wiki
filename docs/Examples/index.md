@@ -135,7 +135,16 @@
 |      admin      |     moderator    |     helper      |      media     |    donater    |     player     |
 | <i class="role-icon admin"></i> | <i class="role-icon moderator"></i> | <i class="role-icon helper"></i> | <i class="role-icon media"></i> | <i class="role-icon donater"></i> | <i class="role-icon player"></i> |
 
+#### Приклад
+<player username="Yevhen4" roleIcon="admin" role="Адмін" warp="right" :descriptions="['Засновник сервера', 'Стрімер']" />
 
+```html
+  <player username="Yevhen4" 
+          roleIcon="admin"
+          role="Адмін" warp="right"
+          :descriptions="['Засновник сервера', 'Стрімер']" 
+  />
+```
 
 ## Компонент для структур
 
