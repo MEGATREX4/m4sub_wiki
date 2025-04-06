@@ -138,16 +138,22 @@ watchEffect(() => {
   background-color: #1b1b1f;
 }
 
-.role-icon .admin {
-  background-image: url(https://raw.githubusercontent.com/MEGATREX4/m4sub_wiki/main/assets/icons/адмін.png);
+.admin {
+  background-image: url(https://raw.githubusercontent.com/MEGATREX4/m4sub_wiki/main/assets/icons/admin.png);
 }
 
-.role-icon .moderator {
-  background-image: url(https://raw.githubusercontent.com/MEGATREX4/m4sub_wiki/main/assets/icons/модератор.png);
+.moderator {
+  background-image: url(https://raw.githubusercontent.com/MEGATREX4/m4sub_wiki/main/assets/icons/moderation.png);
 }
 
-.role-icon .helper {
-  background-image: url(https://raw.githubusercontent.com/MEGATREX4/m4sub_wiki/main/assets/icons/помічник.png);
+.helper {
+  background-image: url(https://raw.githubusercontent.com/MEGATREX4/m4sub_wiki/main/assets/icons/helper.png);
 }
+
+.player {
+  background-image: url(https://raw.githubusercontent.com/MEGATREX4/m4sub_wiki/main/assets/icons/player.png);
+}
+
+
 
 </style>
