@@ -98,6 +98,19 @@
 />
 ```
 
+## Компонент для гравців
+
+<Player 
+      username="Notch" 
+      warp="left" 
+      name="Notch" 
+      :descriptions="[
+        'Creator of Minecraft',
+        'Also known as Markus Persson',
+        'Founder of Mojang'
+      ]" 
+    />
+
 ## Компонент для структур
 
 Використовується для візуального представлення структур Minecraft. Підтримує позиціювання (warp).
