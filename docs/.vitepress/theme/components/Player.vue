@@ -116,44 +116,4 @@ watchEffect(() => {
 </template>
 
 <style scoped>
-/* Style for the role icon */
-.role-icon {
-  display: inline-block;
-  width: 1em;
-  height: 1em;
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  margin-right: 5px; /* Space between icon and role text */
-  vertical-align: middle;
-  image-rendering: pixelated;
-  font-size: 1.5em;
-}
-
-/* Example role styling */
-.wiki-role {
-  font-size: 1rem;
-  font-weight: bold;
-  padding: 10px;
-  background-color: #1b1b1f;
-}
-
-.admin {
-  background-image: url(https://raw.githubusercontent.com/MEGATREX4/m4sub_wiki/main/assets/icons/admin.png);
-}
-
-.moderator {
-  background-image: url(https://raw.githubusercontent.com/MEGATREX4/m4sub_wiki/main/assets/icons/moderation.png);
-}
-
-.helper {
-  background-image: url(https://raw.githubusercontent.com/MEGATREX4/m4sub_wiki/main/assets/icons/helper.png);
-}
-
-.player {
-  background-image: url(https://raw.githubusercontent.com/MEGATREX4/m4sub_wiki/main/assets/icons/player.png);
-}
-
-
-
 </style>

@@ -124,6 +124,19 @@
 <Player username="Notch" warp="right" :descriptions="['Creator of Minecraft', 'Also known as Markus Persson']" />
 ```
 
+### Компонент для ролей у гравців
+Кожен гравець може мати роль. Використовується для відображення ролі гравця додайте roleIcon="icon" для зображення іконки, та role="назва ролі"(тут може бути будь-який рядок ролі).
+
+Значків у нас всього 6: `admin`, `moderator`, `helper`, `media`, `donater`, `player`, кожна з ролей має унікальне зображення.
+
+
+|      Адмін      |    Модератор    |    Помічник     |     Медіа      |   Донатер    |    Гравець    |
+|:--------------:|:--------------:|:--------------:|:--------------:|:--------------:|:--------------:|
+|      admin      |     moderator    |     helper      |      media     |    donater    |     player     |
+| <i class="role-icon admin"></i> | <i class="role-icon moderator"></i> | <i class="role-icon helper"></i> | <i class="role-icon media"></i> | <i class="role-icon donater"></i> | <i class="role-icon player"></i> |
+
+
+
 ## Компонент для структур
 
 Використовується для візуального представлення структур Minecraft. Підтримує позиціювання (warp).

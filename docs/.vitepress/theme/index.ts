@@ -7,6 +7,8 @@ import Structure from '../theme/components/Structure.vue'
 import Mob from '../theme/components/Mob.vue'
 import Player from './components/Player.vue'
 
+import PlayerList from '../theme/components/PlayerList.vue'
+
 import Clear from '../theme/components/Clear.vue'
 
 
@@ -35,6 +37,8 @@ export default {
     app.component('Mob', Mob)
     app.component('Player', Player)
     app.component('Clear', Clear)
+    app.component('PlayerList', PlayerList)
+
   }
 }
 

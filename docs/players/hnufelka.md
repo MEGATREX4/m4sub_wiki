@@ -1,3 +1,3 @@
 # hnufelka
 
-<player username="hnufelka" warp="right" :descriptions="['']" />
+<player username="hnufelka" roleIcon="moderator" role="Модератор" warp="right" :descriptions="['Художниця']" />
