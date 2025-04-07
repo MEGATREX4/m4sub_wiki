@@ -11,6 +11,8 @@ import Player from './components/Player.vue'
 
 import PlayerList from '../theme/components/PlayerList.vue'
 
+import AuthorsSection from '../theme/components/AuthorsSection.vue'
+
 import Clear from '../theme/components/Clear.vue'
 
 import './style.css'
@@ -28,7 +30,8 @@ export default {
     
   extends: DefaultTheme,
   Layout: () => h(DefaultTheme.Layout, null, {
-    'not-found': () => h(NotFound)
+    'not-found': () => h(NotFound),
+    'doc-before': () => h(AuthorsSection)
   }),
 
   enhanceApp({ app }) {
@@ -40,6 +43,7 @@ export default {
     app.component('Player', Player)
     app.component('Clear', Clear)
     app.component('PlayerList', PlayerList)
+    app.component('AuthorsSection', AuthorsSection)
 
   }
 }

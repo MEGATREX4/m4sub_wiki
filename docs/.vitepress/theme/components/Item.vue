@@ -4,6 +4,8 @@ import { defineProps, ref, onMounted } from 'vue'
 // Define props for the item key (for localization) and the image URL
 const props = defineProps<{
   item: string
+  name?: string
+  warp?: 'left' | 'right' // Add wrap option
 }>()
 
 // Define a ref to hold the localization data
@@ -31,13 +33,19 @@ const getItemImageUrl = (item: string) => {
 
 // Function to get the localized name for the item
 const getLocalizedText = (key: string) => {
+  if (props.name) return props.name
   const localizedKey = `item.${key.replace(':', '.')}`; // Correct transformation
   return localization.value[localizedKey] || key; // Directly access the key
 };
 </script>
 
 <template>
-  <div class="item-container">
+  <div :class="[
+    'item-window',
+    props.warp === 'left' ? 'image-left' :
+    props.warp === 'right' ? 'image-right' :
+    'item-image-center'
+  ]" class="item-container">
     <div class="item" :data-tooltip="getLocalizedText(props.item)">
       <img :src="getItemImageUrl(props.item)" :alt="props.item" />
     </div>
@@ -49,9 +57,8 @@ const getLocalizedText = (key: string) => {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
   height: 100%;
-  padding: 20px;
+  margin: 10px;
 }
 
 .item {
@@ -75,6 +82,16 @@ const getLocalizedText = (key: string) => {
   left: 50%;
   transform: translate(-50%, -50%);
   image-rendering: pixelated;
+}
+
+.item-wrap-left {
+  float: left!important;
+  margin-right: 15px;
+}
+
+.item-wrap-right {
+  float: right!important;
+  margin-left: 15px;
 }
 
 .item-text {
@@ -104,8 +121,16 @@ const getLocalizedText = (key: string) => {
   padding: 7.5px 10.5px;
   font-size: 16.5px;
   white-space: nowrap;
-  z-index: 10;
+  z-index: 1000;
   font-family: "Minecraft", sans-serif;
   border: 6px double #220559;
+}
+
+.item-image-center{
+  width: 100%!important;
+  display: flex!important;
+  justify-content: center!important;
+  margin-left: auto !important;
+  margin-right: auto !important;
 }
 </style>
