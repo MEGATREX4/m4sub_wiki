@@ -52,7 +52,7 @@
 ```html
 <Mob mob="minecraft:axolotl" />
 ```
-
+<Clear/>
 ### Зліва
 <Mob mob="minecraft:axolotl" warp="left" />
 
@@ -61,7 +61,7 @@
 ```html
 <Mob mob="minecraft:axolotl" warp="left" /> 
 ```
-
+<Clear/>
 ### Справа
 <Mob mob="minecraft:axolotl" warp="right" />
 
@@ -69,7 +69,7 @@
 ```html
 <Mob mob="minecraft:axolotl" warp="right" /> 
 ```
-
+<Clear/>
 ### Моб з описом
 <Mob
   name="Скелет"
@@ -97,7 +97,7 @@
   ]"
 />
 ```
-
+<Clear/>
 ## Компонент для гравців
 
 ### По центру
@@ -107,7 +107,7 @@
 ```html
 <Player username="Notch" :descriptions="['Creator of Minecraft', 'Also known as Markus Persson']" />
 ```
-
+<Clear/>
 ### Зліва
 <Player username="Notch" warp="left" :descriptions="['Creator of Minecraft', 'Also known as Markus Persson']" />
 
@@ -115,7 +115,7 @@
 ```html
 <Player username="Notch" warp="left" :descriptions="['Creator of Minecraft', 'Also known as Markus Persson']" />
 ```
-
+<Clear/>
 ### Справа
 <Player username="Notch" warp="right" :descriptions="['Creator of Minecraft', 'Also known as Markus Persson']" />
 
@@ -123,7 +123,7 @@
 ```html
 <Player username="Notch" warp="right" :descriptions="['Creator of Minecraft', 'Also known as Markus Persson']" />
 ```
-
+<Clear/>
 ### Компонент для ролей у гравців
 Кожен гравець може мати роль. Використовується для відображення ролі гравця додайте roleIcon="icon" для зображення іконки, та role="назва ролі"(тут може бути будь-який рядок ролі).
 
@@ -145,7 +145,7 @@
           :descriptions="['Засновник сервера', 'Стрімер']" 
   />
 ```
-
+<Clear/>
 ## Компонент для структур
 
 Використовується для візуального представлення структур Minecraft. Підтримує позиціювання (warp).
@@ -158,7 +158,7 @@
 <Structure id="minecraft:ancient_city_left" warp="left" name="Стародавнє місто" />
 ```
 Текст обходить зображення структури. (обхід зображення працює тільки для ПК)
-
+<Clear/>
 ### Справа
 
 #### Приклад
@@ -168,7 +168,7 @@
 ```
 
 Текст обходить зображення структури. (обхід зображення працює тільки для ПК)
-
+<Clear/>
 ### По центру (за замовчуванням)
 #### Приклад
 <Structure id="minecraft:woodland_mansion_1x2d4" name="Woodland Mansion" />
@@ -176,7 +176,7 @@
 ```html
 <Structure id="minecraft:woodland_mansion_1x2d4" name="Woodland Mansion" />
 ```
-
+<Clear/>
 ### Структура з описом
 <Structure
   id="minecraft:desert_well"
@@ -209,3 +209,36 @@
 ```
 
 Якщо після блоків з форматуванням зліва або справа ви хочете скинути форматування і наступний блок не обтікати текстом - використайте цей компонент і він вставить `div` блок що має клас `clear`, що вимкне обтікання текста.
+
+### Спрайти в тексті
+
+Ви можете додавати спрайти в текст, щоб зробити його більш яскравим, як тут <Sprite item="minecraft:diamond" />
+
+```html
+<Sprite item="minecraft:diamond" />
+```
+
+Цей код дає змогу вставляти спрайти в текст, роблячи його більш інтерактивним та привабливим. Спрайти можуть бути використані для відображення предметів або іконок, таких як блоки <Sprite item="minecraft:diamond_block" /> та предмети <Sprite item="minecraft:diamond" />.
+
+До кожного спрайту можна застосувати розмір у символах `rem`, що дозволяє гнучко регулювати його відображення. Якщо розмір <Sprite item="minecraft:apple" :size="6" /> не вказано, за замовчуванням буде використано значення `1.4rem`, але ви можете змінити це значення, передавши інше значення для пропсу `size`.
+
+```html
+<Sprite item="minecraft:apple" :size="6" />
+```
+
+Окрім предметів, ми можемо відображати спрайти для структур та мобів. Для цього потрібно використовувати параметр `type`, вказуючи `mobs` для мобів або `structures` для структур. Наприклад:
+
+- Спрайт для моба <Sprite item="minecraft:zombie" type="mobs" :size="3" />
+
+```html
+<Sprite item="minecraft:zombie" type="mobs" :size="3" />
+```
+
+- Спрайт для структури <Sprite item="minecraft:end_city_bridge_piece" type="structures" :size="3" />
+
+```html
+<Sprite item="minecraft:end_city_bridge_piece" type="structures" :size="3" />
+```
+
+Це дозволяє відображати іконки мобів та структур, роблячи текст ще більш виразним та захоплюючим.
+

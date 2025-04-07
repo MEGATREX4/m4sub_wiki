@@ -3,6 +3,8 @@ import DefaultTheme from 'vitepress/theme'
 import NotFound from './NotFound.vue'
 import CraftingGrid from '../theme/components/CraftingGrid.vue'
 import Item from '../theme/components/Item.vue'
+import Sprite from './components/Sprite.vue'
+
 import Structure from '../theme/components/Structure.vue'
 import Mob from '../theme/components/Mob.vue'
 import Player from './components/Player.vue'
@@ -10,7 +12,6 @@ import Player from './components/Player.vue'
 import PlayerList from '../theme/components/PlayerList.vue'
 
 import Clear from '../theme/components/Clear.vue'
-
 
 import './style.css'
 
@@ -33,6 +34,7 @@ export default {
   enhanceApp({ app }) {
     app.component('CraftingGrid', CraftingGrid)
     app.component('Item', Item)
+    app.component('Sprite', Sprite)
     app.component('Structure', Structure)
     app.component('Mob', Mob)
     app.component('Player', Player)

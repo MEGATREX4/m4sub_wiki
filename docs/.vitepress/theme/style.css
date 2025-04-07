@@ -601,14 +601,20 @@ footer{
   clear: both!important;
 }
 
-h1, h2, h3 {
+h1, h2, h3, h4, h5, h6, .outline-title, .outline-link, .VPLink .link .link, .text {
   font-family: 'Minecraft';
-  clear: both;
+  border-top: 0px none var(--vp-c-divider)!important;
 }
 
-h4, h5, h6, .outline-title, .outline-link, .VPLink .link .link, .text {
-  font-family: 'Minecraft';
+p.hyphen {
+  hyphens: auto;
+    -ms-hyphens: auto;
+    -moz-hyphens: auto;
+    -webkit-hyphens: auto;
+  overflow-wrap: break-word;
+  word-break: normal;
 }
+
 
 
 
