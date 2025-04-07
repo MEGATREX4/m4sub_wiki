@@ -81,7 +81,7 @@ const getLocalizedText = (key: string) => {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  image-rendering: pixelated;
+  image-rendering: pixelated!important;
 }
 
 .item-wrap-left {

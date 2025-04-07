@@ -37,5 +37,6 @@ const iconSize = computed(() => `${props.size ?? 1.3}rem`)
   background-repeat: no-repeat;
   background-position: center;
   vertical-align: middle;
+  image-rendering: pixelated!important;
 }
 </style>
