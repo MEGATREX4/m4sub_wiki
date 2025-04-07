@@ -4,8 +4,6 @@ description: чел
 authors:
   - MEGATREX4
   - Roll54
-authors-nogithub:
-  - Niko
 ---
 
 # DONKI_F
