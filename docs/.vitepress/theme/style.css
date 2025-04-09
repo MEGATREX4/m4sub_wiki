@@ -777,3 +777,6 @@ p.hyphen {
   background-image: url(https://raw.githubusercontent.com/MEGATREX4/m4sub_wiki/main/assets/icons/prime.png);
 }
 
+a{
+  text-decoration:none!important;
+}

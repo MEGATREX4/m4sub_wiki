@@ -73,8 +73,8 @@ export default defineConfig(
   {
     documentRootPath: '/docs',
     manualSortFileNameByPriority:['wiki'],
-    collapsed: false,
-    capitalizeFirst: true,
+    collapsed: true,
+    capitalizeFirst: false,
     excludePattern: ['README.md'],
     sortMenusByName: false,
     debugPrint: false,
@@ -83,9 +83,11 @@ export default defineConfig(
     useTitleFromFrontmatter: true,
     useFolderTitleFromIndexFile: true,
     frontmatterTitleFieldName: "title",
-    keepMarkdownSyntaxFromTitle: false,
+    keepMarkdownSyntaxFromTitle: true,
     useFolderLinkFromIndexFile: true,
     useFolderLinkFromSameNameSubFile: true,
-    folderLinkNotIncludesFileName: true
+    folderLinkNotIncludesFileName: true,
+    sortFolderTo: 'bottom'
+    
   })
 );
