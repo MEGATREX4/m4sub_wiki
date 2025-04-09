@@ -1,6 +1,0 @@
-# Handle first join event
-on first join:
-    
-    # Execute the /menu command as the player
-    make player execute command "/menu"
-

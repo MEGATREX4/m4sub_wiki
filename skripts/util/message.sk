@@ -1,9 +1,0 @@
-command /r <player> <text>:
-    trigger:
-        if arg-1 is set:
-            if arg-2 is set:
-                execute player command "/msg %arg-1% %arg-2%"
-            else:
-                send "&cНе правильно використана команда: /r [Гравець] [повідомлення]" # Error for missing message
-        else:
-            send "&cНе правильно використана команда: /r [Гравець] [повідомлення]" # Error for missing player

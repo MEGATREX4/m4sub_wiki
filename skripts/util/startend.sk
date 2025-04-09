@@ -1,9 +1,0 @@
-command /startend:
-    trigger:
-        set {_countdown} to 5
-        loop {_countdown} times:
-            broadcast "&a%{_countdown}%..." # Broadcasts the countdown (adjust message format as needed)
-            wait 1 second
-            remove 1 from {_countdown}
-        broadcast "&6ГОУ ГОУ ГОУ!" # Final message
-        make console execute command "trueportals status end enable" # Executes the command

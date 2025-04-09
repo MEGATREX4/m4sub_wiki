@@ -1,4 +1,0 @@
-on player join:
-    set {_p} to player
-    wait 10 seconds
-    make console execute command "advancement grant %{_p}% only m4sub:m4sub/april"
