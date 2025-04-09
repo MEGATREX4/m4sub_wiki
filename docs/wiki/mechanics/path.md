@@ -12,9 +12,9 @@
 ### Процес зміни блоків:
 1. Якщо гравець не **крадеться**, і він **бігає**, система перевіряє блок під його ногами.
 2. **Зміна блоків** відбувається по черзі:
-   - **<Sprite item="minecraft:grass_block" /> Трава** перетворюється на **<Sprite item="minecraft:dirt" /> ґрунт**  (dirt).
-   - **<Sprite item="minecraft:dirt" /> ґрунт**  перетворюється на **<Sprite item="minecraft:rooted_dirt" /> Кореневий ґрунт** (rooted dirt).
-   - **<Sprite item="minecraft:rooted_dirt" /> Кореневий ґрунт** перетворюється на **<Sprite item="minecraft:coarse_dirt" /> грубий ґрунт** (coarse dirt), після чого може бути перетворена на **<Sprite item="minecraft:podzol" /> подзол** (podzol) з 50% шансом.
+   - **<Sprite item="minecraft:grass_block" /> Трава** перетворюється на **<Sprite item="minecraft:dirt" /> ґрунт**.
+   - **<Sprite item="minecraft:dirt" /> ґрунт**  перетворюється на **<Sprite item="minecraft:rooted_dirt" /> Кореневий ґрунт**.
+   - **<Sprite item="minecraft:rooted_dirt" /> Кореневий ґрунт** перетворюється на **<Sprite item="minecraft:coarse_dirt" /> грубий ґрунт** (coarse dirt), після чого може бути перетворена на **<Sprite item="minecraft:podzol" /> подзол** з 50% шансом.
 
 ### Опис змін блоків:
 - **<Sprite item="minecraft:grass_block" /> Трава** → **<Sprite item="minecraft:dirt" /> ґрунт** 

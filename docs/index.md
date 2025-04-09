@@ -1,4 +1,3 @@
----
 # https://vitepress.dev/reference/default-theme-home-page
 layout: home
 
@@ -13,7 +12,6 @@ hero:
     - theme: alt
       text: Сайт проекту
       link: https://m4sub.click
----
 
 <style>
 
