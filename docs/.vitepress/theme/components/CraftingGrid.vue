@@ -43,7 +43,7 @@ const getLocalizedText = (key: string) => {
         :key="index" 
         class="crafting-cell"
       >
-        <div v-if="item" class="item" :data-tooltip="getLocalizedText(item)">
+        <div v-if="item" class="mitem" :data-tooltip="getLocalizedText(item)">
           <img :src="`https://raw.githubusercontent.com/MEGATREX4/m4sub_wiki/main/assets/items/${item.replace('minecraft:', '')}.png`" :alt="item" />
         </div>
       </div>
@@ -56,7 +56,7 @@ const getLocalizedText = (key: string) => {
       </svg>
     </div>
     <div class="crafting-result">
-      <div class="item" :data-tooltip="getLocalizedText(props.result)">
+      <div class="mitem" :data-tooltip="getLocalizedText(props.result)">
         <img :src="`https://raw.githubusercontent.com/MEGATREX4/m4sub_wiki/main/assets/items/${props.result.replace('minecraft:', '')}.png`" :alt="props.result" />
       </div>
     </div>
@@ -66,72 +66,57 @@ const getLocalizedText = (key: string) => {
 <style scoped>
 /* Crafting grid styling */
 .crafting-container {
+  margin: 30px;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 15px;
-  padding: 22.5px;
-  border-radius: 12px;
+  gap: 18px;
+  padding: 27px;
+  border-radius: 14.4px;
   max-width: 100%;
+  transform: scale(1.2);
 }
 
 .crafting-grid {
   display: grid;
-  grid-template-columns: repeat(3, 60px);
-  gap: 3px;
+  grid-template-columns: repeat(3, 72px);
+  gap: 3.6px;
   background-color: #404040;
-  padding: 4.5px;
-  border: 3px solid #8B8B8B;
+  padding: 5.4px;
+  border: 3.6px solid #8B8B8B;
 }
 
 .crafting-cell {
-  width: 60px;
-  height: 60px;
+  width: 72px;
+  height: 72px;
   background-color: #505050;
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1.5px solid #8B8B8B;
+  border: 1.8px solid #8B8B8B;
 }
 
 .crafting-result {
-  width: 60px;
-  height: 60px;
+  width: 72px;
+  height: 72px;
   background-color: #505050;
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 3px solid #8B8B8B;
+  border: 3.6px solid #8B8B8B;
 }
 
 /* Item Images */
-.item img {
-  width: 42px;
-  height: 42px;
+.mitem img {
+  width: 50.4px;
+  height: 50.4px;
   image-rendering: pixelated;
 }
 
 /* Minecraft-style tooltip */
-.item {
+.mitem {
   position: relative;
   image-rendering: pixelated;
-}
-
-.item:hover::after {
-  content: attr(data-tooltip);
-  position: absolute;
-  bottom: -45px;
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: #110215;
-  border: 6px double #220559;
-  color: #fff;
-  padding: 7.5px 10.5px;
-  font-size: 16.5px;
-  white-space: nowrap;
-  z-index: 10;
-  font-family: "Minecraft", sans-serif;
-  
 }
 
 @media screen and (max-width: 600px) {
@@ -145,3 +130,4 @@ const getLocalizedText = (key: string) => {
 }
 
 </style>
+

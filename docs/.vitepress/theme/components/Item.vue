@@ -41,19 +41,19 @@ const getLocalizedText = (key: string) => {
 
 <template>
   <div :class="[
-    'item-window',
+    'mitem-window',
     props.warp === 'left' ? 'image-left' :
     props.warp === 'right' ? 'image-right' :
-    'item-image-center'
-  ]" class="item-container">
-    <div class="item" :data-tooltip="getLocalizedText(props.item)">
+    'mitem-image-center'
+  ]" class="mitem-container">
+    <div class="mitem" :data-tooltip="getLocalizedText(props.item)">
       <img :src="getItemImageUrl(props.item)" :alt="props.item" />
     </div>
   </div>
 </template>
 
 <style scoped>
-.item-container {
+.mitem-container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -61,40 +61,41 @@ const getLocalizedText = (key: string) => {
   margin: 10px;
 }
 
-.item {
+.mitem {
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
   position: relative;
-  width: 60px;
-  height: 60px;
+  width: 110px;
+  height: 110px;
   padding: 5px;
   background-color: #505050;
   border: 3px solid #8B8B8B;
 }
 
-.item img {
-  width: 50px;
-  height: 50px;
+.mitem img {
+  width: 90px;
+
   position: absolute;
+  padding: 5px;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   image-rendering: pixelated!important;
 }
 
-.item-wrap-left {
+.mitem-wrap-left {
   float: left!important;
   margin-right: 15px;
 }
 
-.item-wrap-right {
+.mitem-wrap-right {
   float: right!important;
   margin-left: 15px;
 }
 
-.item-text {
+.mitem-text {
   margin-top: 0;
   margin-left: 60px;
   margin-right: 60px;
@@ -110,23 +111,7 @@ const getLocalizedText = (key: string) => {
   z-index: 1;
 }
 
-.item:hover::after {
-  content: attr(data-tooltip);
-  position: absolute;
-  bottom: -45px;
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: #110215;
-  color: #fff;
-  padding: 7.5px 10.5px;
-  font-size: 16.5px;
-  white-space: nowrap;
-  z-index: 1000;
-  font-family: "Minecraft", sans-serif;
-  border: 6px double #220559;
-}
-
-.item-image-center{
+.mitem-image-center{
   width: 100%!important;
   display: flex!important;
   justify-content: center!important;
@@ -134,3 +119,4 @@ const getLocalizedText = (key: string) => {
   margin-right: auto !important;
 }
 </style>
+
