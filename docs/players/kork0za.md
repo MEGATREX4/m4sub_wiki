@@ -1,3 +1,9 @@
+---
+authors:
+  - MEGATREX4
+  - kork0za
+---
+
 # kork0za
 
 <player username="kork0za" roleIcon="moderator" role="Модератор" warp="right" :descriptions="['Справжнє ім\'я: Назар','Улюблена платівка: Relic','Улюблені моби: Збирик, Броненосець, Скрипень', 'День народження: 23 липня','Контент мейкер']" />
