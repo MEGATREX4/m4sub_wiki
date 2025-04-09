@@ -1,0 +1,25 @@
+# Tracks the number of times a player sneaks near another sneaking player
+variables:
+    {sneak-count::%player%::%player%} = 0
+
+# When a player starts sneaking
+on sneak toggle:
+    if event-player is sneaking: # Only trigger when starting to sneak
+        loop all players in radius 1 around event-player:
+            if loop-player is not event-player: # Ensure the player isn't checking themselves
+                if loop-player is sneaking:
+                    add 1 to {sneak-count::%event-player%::%loop-player%}
+                    add 1 to {sneak-count::%loop-player%::%event-player%}
+
+                    # If both players have sneaked near each other 5 times
+                    if {sneak-count::%event-player%::%loop-player%} >= 5:
+                        #message "&c❤ You are in love with %loop-player%!" to event-player
+                        #message "&c❤ You are in love with %event-player%!" to loop-player
+
+                        # Spawn heart particles around both players
+                        make 10 of heart at location of event-player with offset vector(0.5, 0.5, 0.5) with extra 0.2
+                        make 10 of heart at location of loop-player with offset vector(0.5, 0.5, 0.5) with extra 0.2
+
+                        # Reset counters to prevent spam
+                        set {sneak-count::%event-player%::%loop-player%} to 0
+                        set {sneak-count::%loop-player%::%event-player%} to 0

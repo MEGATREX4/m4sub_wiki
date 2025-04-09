@@ -1,0 +1,22 @@
+command /listvaults:
+    permission: admin
+    permission message: &cYou do not have permission!
+    trigger:
+        if {vaults_modified::*} is not set:
+            send "&cNo vaults marked yet!"
+            stop
+        
+        send "&6&l---[ Vaults Marked ]---"
+        loop {vaults_modified::*}:
+            set {_key} to loop-index
+            
+            # Split once into list
+            set {_parts::*} to split {_key} at "|"
+            
+            # Access elements (indexing starts at 1!)
+            set {_world} to {_parts::1}
+            set {_x} to {_parts::2}
+            set {_y} to {_parts::3}
+            set {_z} to {_parts::4}
+            
+            send "&eWorld: &f%{_world}%, &eXYZ: &f%{_x}%, %{_y}%, %{_z}%"

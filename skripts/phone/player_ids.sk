@@ -1,0 +1,25 @@
+on join:
+    # Check if the player doesn't have an ID set
+    if {player_id.%uuid of player%} is not set:
+        # Generate a random ID (or any logic you prefer)
+        set {player_id.%uuid of player%} to random number between 1000 and 9999
+
+
+# Command to read the player ID
+command /checkid:
+    permission: skript.checkid
+    permission message: &cYou do not have permission to check the ID.
+    trigger:
+        # Retrieve and display the player's ID
+        send "&7Your ID: %{player_id.%uuid of player%}%" to player
+
+# Admin command to check the ID of a specific player
+command /checkplayerid [<offlineplayer>]:
+    permission: op
+    permission message: &cYou must be an OP to use this command.
+    trigger:
+        if arg 1 is set:
+            # Retrieve the ID of the specified player
+            send "&7ID for %arg 1%: %{player_id.%uuid of arg 1%}%" to player
+        else:
+            send "&cPlease specify a player." to player

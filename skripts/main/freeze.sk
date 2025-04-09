@@ -1,0 +1,42 @@
+# Variable to track the freeze status
+variables:
+    {server.isFrozen} = false  # Tracks whether the server ticks are currently frozen
+
+# Function to count online players
+function countPlayers() :: integer:
+    return number of all players
+
+# Command to reset the freeze status
+command /resetfreeze:
+    description: Resets the freeze status of the server
+    permission: op
+    trigger:
+        # Reset the {server.isFrozen} variable
+        set {server.isFrozen} to false
+        # Optionally, send a message to the console about this reset
+        broadcast "The server freeze status has been reset."
+
+# Event handler for player join
+on join:
+    wait 1 tick  # Wait for 1 tick to ensure player count is updated
+    if countPlayers() > 1:
+        execute console command "/tick unfreeze"
+        set {server.isFrozen} to false
+
+# Event handler for player quit
+on quit:
+    wait 10 seconds  # Wait for 1 tick to ensure player count is updated
+    if countPlayers() = 0:
+        execute console command "/tick freeze"
+        set {server.isFrozen} to true
+
+# Task to check if any player is still online every 6 seconds
+every 6 seconds:
+    if countPlayers() = 0:
+        if {server.isFrozen} is false:
+            execute console command "/tick freeze"
+            set {server.isFrozen} to true
+    else:
+        if {server.isFrozen} is true:
+            execute console command "/tick unfreeze"
+            set {server.isFrozen} to false

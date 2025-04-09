@@ -1,0 +1,38 @@
+command /confeti [<player>]:
+    permission: fireworks.use
+    trigger:
+        if arg-1 is set:
+            if arg-1 is online:
+                set {_player} to arg-1
+            else:
+                send "&cPlayer is not online!"
+                stop
+        else:
+            set {_player} to player  # If no player is specified, use the command sender
+            
+        send "&a🎉 З днем народження! %{_player}%! Насолоджуйся феєрверком! 🎆" to {_player}
+        
+        loop 20 times:
+        
+            set {_time} to random integer between 0 and 10
+            wait 1 ticks  # Wait for the randomized time (converted to ticks)
+            
+            # Generate random offsets (-3 to +3)
+            set {_x} to random integer between -10 and 10
+            set {_z} to random integer between -10 and 10
+            set {_location} to location of {_player}
+            add {_x} to x-coord of {_location}
+            add {_z} to z-coord of {_location}
+            add 1 to y-coord of {_location}
+            
+            # Define fireworks
+            set {_firework1} to nbt compound from "{Life:0,LifeTime:40,FireworksItem:{id:firework_rocket,components:{fireworks:{flight_duration:3,explosions:[{shape:large_ball,colors:[I;16711680],fade_colors:[I;16776960]}]}}}}"
+            set {_firework2} to nbt compound from "{Life:0,LifeTime:40,FireworksItem:{id:firework_rocket,components:{fireworks:{flight_duration:4,explosions:[{shape:burst,colors:[I;255],fade_colors:[I;16711935]}]}}}}"
+            set {_firework3} to nbt compound from "{Life:0,LifeTime:40,FireworksItem:{id:firework_rocket,components:{fireworks:{flight_duration:5,explosions:[{shape:star,colors:[I;65280],fade_colors:[I;16777215]}]}}}}"
+            
+            # Spawn fireworks randomly around the player
+            spawn 1 of firework rocket at {_location} with nbt {_firework1}
+            wait 3 ticks
+            spawn 1 of firework rocket at {_location} with nbt {_firework2}
+            wait 3 ticks
+            spawn 1 of firework rocket at {_location} with nbt {_firework3}

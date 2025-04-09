@@ -1,0 +1,78 @@
+variables:
+    {keepinventory::%player%} = false
+    {farmrightclick::%player%} = false
+
+command /menu:
+    permission: skript.settings.menu
+    trigger:
+        set {_menu} to a new chest inventory with 1 row named "&2Індивідуальні налаштування"
+
+        set slot 2 of {_menu} to iron sword named "&4Меню дуелей" with lore "&7Натисніть, щоб відкрити меню вибору дуелі."
+        
+        # Slot 4: KeepInventory Toggle
+        set slot 4 of {_menu} to emerald named "&aЗбереження інвентаря" with lore "&7Зберігається інвентар, але зникає частина досвіду." and "&7Зараз: %{keepinventory::%player%}%"
+        
+        # Slot 6: Farm Right-Click Toggle
+        set slot 6 of {_menu} to wheat named "&aШвидкий збір урожаю" with lore "&7ПКМ - швидко збирає урожай, що вже виріс." and "&7Зараз: %{farmrightclick::%player%}%"
+        
+        # Slot 8: /Callmenu Shortcut
+        set slot 8 of {_menu} to paper named "&aМеню дзвінка" with lore "&7Натисніть, щоб відкрити меню дзвінка."
+        
+        open {_menu} to player
+
+on inventory click:
+    if name of event-inventory is "&2Індивідуальні налаштування":
+        cancel event
+        if index of event-slot is 4: # Toggle KeepInventory
+            if {keepinventory::%player%} is true:
+                set {keepinventory::%player%} to false
+                execute console command "lp user %player% permission unset keepitems.keep"
+                execute console command "lp user %player% permission unset keepitems.keepxp"
+                send "&cВимкнено &6збереження інвентарю&c." to player
+                execute player command "menu"
+            else:
+                set {keepinventory::%player%} to true
+                execute console command "lp user %player% permission set keepitems.keep"
+                execute console command "lp user %player% permission set keepitems.keepxp"
+                send "&aУвімкнено &6збереження інвентарю&a." to player
+                execute player command "menu"
+
+        if index of event-slot is 6: # Toggle Farm Right-Click
+            if {farmrightclick::%player%} is true:
+                set {farmrightclick::%player%} to false
+                execute console command "lp user %player% permission unset harvest.rtclick"
+                send "&cВимкнено &6швидкий збір&c." to player
+                execute player command "menu"
+            else:
+                set {farmrightclick::%player%} to true
+                execute console command "lp user %player% permission set harvest.rtclick"
+                send "&aУвімкнено &6швидкий збір&a." to player
+                execute player command "menu"
+
+        if index of event-slot is 8: # /Callmenu shortcut
+            execute player command "/callmenu"
+
+        if index of event-slot is 2: # Open Duel Menu
+            execute player command "/duelmenu"
+
+        
+
+on join:
+    # Ensure permissions reflect stored settings on join
+    if {keepinventory::%player%} is true:
+        execute console command "lp user %player% permission set keepitems.keep"
+        execute console command "lp user %player% permission set keepitems.keepxp"
+    else:
+        execute console command "lp user %player% permission unset keepitems.keep"
+        execute console command "lp user %player% permission unset keepitems.keepxp"
+
+    if {farmrightclick::%player%} is true:
+        execute console command "lp user %player% permission set harvest.rtclick"
+    else:
+        execute console command "lp user %player% permission unset harvest.rtclick"
+
+on respawn:
+    if {keepinventory::%player%} is true:
+        set {_xp} to player's total experience
+        set {_xpToRemove} to {_xp} * 0.4 # Change 0.25 to the percentage you want to remove
+        set player's total experience to {_xp} - {_xpToRemove}

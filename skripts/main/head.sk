@@ -1,0 +1,44 @@
+on death of player:
+    # Get the attacker and victim
+    set {_killer} to attacker
+    set {_victim} to victim
+    
+    # Check if the killer is a creeper and if the creeper is charged (powered)
+    if {_killer} is a creeper:
+        # Check if the creeper is charged (powered)
+        if {_killer} is charged:
+            # Drop the player's head with a 100% chance
+            set {_head} to skull of {_victim} named "&6Голова %victim%"
+            drop {_head} at {_victim}'s location
+            stop
+    
+    # For regular 10% chance drop
+    set {_chance} to random integer between 1 and 100
+    if {_chance} <= 10:
+        # Ensure the killer exists and is a player
+        if {_killer} is a player:
+            # Create a head item with the killer's name in the item's name
+            set {_head} to skull of {_victim} named "&6Голова %victim% &7(вбито: %attacker%)"
+            drop {_head} at {_victim}'s location
+
+# Command to give heads
+command /head [<player>] [<player>]:
+    permission: op
+    permission message: "&cТи не маєш прав для цієї команди!"
+    trigger:
+        if arg-1 is set:
+            if arg-2 is set:
+                # Both killer and victim are provided
+                set {_victim} to arg-2
+                set {_killer} to arg-1
+                set {_head} to skull of {_victim} named "&6Голова %{_victim}% &7(вбито: %{_killer}%)"
+                give {_head} to player
+                send "&aТи отримав голову %{_victim}% з підписом про %{_killer}%." to player
+            else:
+                # Only victim is provided
+                set {_victim} to arg-1
+                set {_head} to skull of {_victim} named "&6Голова %{_victim}%"
+                give {_head} to player
+                send "&aТи отримав голову %{_victim}%." to player
+        else:
+            send "&cВикористання: /head <killer> <victim> або /head <victim>" to player

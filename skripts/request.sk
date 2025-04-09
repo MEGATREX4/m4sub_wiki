@@ -1,0 +1,6 @@
+command /addplayer <string>:  
+    permission: admin.newplayer  
+    permission message: &cВи не маєте дозволу на використання цієї команди!  
+    trigger:  
+        execute console command "nwl add name %arg-1%"  
+        execute console command "tellraw @a ["""",{""text"":""\n"",""color"":""yellow""},{""text"":""Нова заявка на сервер\nВітаємо гравця"",""color"":""yellow""},{""text"":"" %arg-1%""},{""text"":""\n"",""color"":""yellow""}]"  

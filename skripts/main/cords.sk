@@ -1,0 +1,43 @@
+every 10 seconds:
+    loop all players:
+        set {_hasCompass} to false
+
+        loop all items in loop-player's inventory:
+            if loop-item is a recovery compass:
+                set {_hasCompass} to true
+        if {_hasCompass} is true:
+            if loop-player does not have permission "coordinateoffset.bypass":
+                make console execute command "lp user %loop-player% permission set coordinateoffset.bypass true"
+                send "[DEBUG] Gave %loop-player% permission 'coordinateoffset.bypass'" to console
+        else:
+            if loop-player has permission "coordinateoffset.bypass":
+                make console execute command "lp user %loop-player% permission set coordinateoffset.bypass false"
+                send "[DEBUG] Revoked %loop-player%'s permission 'coordinateoffset.bypass'" to console
+
+
+                
+every 4 ticks:
+    loop all players:
+        if loop-player is not null:
+            if offhand tool of loop-player is recovery compass:
+                set {_x} to floor(loop-player's x-coordinate)
+                set {_y} to floor(loop-player's y-coordinate)
+                set {_z} to floor(loop-player's z-coordinate)
+                set {_yaw} to floor(yaw of loop-player)
+                set {_pitch} to floor(pitch of loop-player)
+                set {_coords} to "X: %{_x}%, Y: %{_y}%, Z: %{_z}%"
+                send action bar "%{_coords}%" to loop-player
+            else if tool of loop-player is recovery compass:
+                set {_x} to floor(loop-player's x-coordinate)
+                set {_y} to floor(loop-player's y-coordinate)
+                set {_z} to floor(loop-player's z-coordinate)
+                set {_yaw} to floor(yaw of loop-player)
+                set {_pitch} to floor(pitch of loop-player)
+                set {_coords} to "X: %{_x}%, Y: %{_y}%, Z: %{_z}%"
+                send action bar "%{_coords}%" to loop-player
+             
+
+             
+
+
+             

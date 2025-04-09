@@ -1,0 +1,2 @@
+every 90 minutes:
+    execute console command "twitchlink reload"

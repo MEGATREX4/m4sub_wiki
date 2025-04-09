@@ -1,0 +1,59 @@
+# Функція для застосування випадкового ефекту
+function applyRandomEffect():
+    set {_players::*} to all players
+    set {_playerCount} to size of {_players::*}
+    
+    # Переконуємось, що є хоча б один гравець
+    if {_playerCount} > 0:
+        set {_baseChance} to 9  # Базовий шанс у відсотках
+        set {_scaledChance} to {_baseChance} * {_playerCount} 
+
+        if {_scaledChance} > 40:
+            set {_scaledChance} to 40
+        
+        # Випадковий шанс спрацьовування
+        set {_roll} to random integer between 1 and 100
+        if {_roll} <= {_scaledChance}:
+            # Вибір випадкового гравця
+            set {_randomPlayer} to random element of {_players::*}
+            
+            # Застосувати отруєння (або інший ефект)
+            apply poison 1 to {_randomPlayer} for 5 seconds
+            
+            # Отримати випадкове повідомлення
+            set {_randomMessage} to getRandomPoisonMessage()
+            
+            # Префікс Херобріна
+            set {_herobrinePrefix} to "&c&kA &r" + getRandomHerobrinePrefix() + " &7» &r"
+            broadcast {_herobrinePrefix} + {_randomMessage}
+            make console execute command "advancement grant %{_randomPlayer}% only m4sub:m4sub/herobrine"
+            make console execute command "discordsrv broadcast %{_herobrinePrefix} + {_randomMessage}%"
+
+            
+
+# Виклик функції кожні 30 хвилин
+every 30 minutes:
+    applyRandomEffect()
+
+# Функція для застосування ефекту до заданого гравця
+command /applyHerobrineEffect <player>:
+    permission: herobrine.apply
+    trigger:
+        # Вибір гравця для застосування ефекту
+        set {_player} to arg-1
+        
+        # Застосувати отруєння до вибраного гравця
+        apply poison 1 to {_player} for 5 seconds
+        
+        # Отримати випадкове повідомлення
+        set {_randomMessage} to getRandomPoisonMessage()
+        
+        # Префікс Херобріна
+        set {_herobrinePrefix} to "&c&kA &r" + getRandomHerobrinePrefix() + " &7» &r"
+        
+        # Вивести повідомлення для всіх гравців
+        broadcast {_herobrinePrefix} + {_randomMessage}
+        make console execute command "advancement grant %{_player}% only m4sub:m4sub/herobrine"
+        make console execute command "discordsrv broadcast %{_herobrinePrefix} + {_randomMessage}%"
+        
+        
