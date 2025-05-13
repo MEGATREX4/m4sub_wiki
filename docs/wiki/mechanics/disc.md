@@ -17,10 +17,10 @@ authors:
 
 | Тварина | Платівка | Назва |
 |--------|---------|--------|
-| <Mob mob="minecraft:chicken" type="mobs" :size="2" /> Курка | <Item item="m4sub_pack:music_disc_lo_phi_cultured_tavern" name="Cultured Tavern" /> | *Cultured Tavern* |
-| <Mob mob="minecraft:cow" type="mobs" :size="2" /> Корова | <Item item="m4sub_pack:music_disc_lo_phi_roots" name="Roots" /> | *Roots* |
-| <Mob mob="minecraft:pig" type="mobs" :size="2" /> Свиня | <Item item="m4sub_pack:music_disc_lo_phi_tuning_cylinder_the_seraphs" name="Tuning Cylinder of the Seraphs" /> | *Tuning Cylinder of the Seraphs* |
-| <Mob mob="minecraft:goat" type="mobs" :size="2" /> Коза | <Item item="m4sub_pack:music_disc_lo_phi_vintage_story" name="Vintage Story" /> | *Vintage Story* |
+| <Mob mob="minecraft:chicken" type="mobs" :size="2" /> Курка | <Item item="minecraft::music_disc_lo_phi_cultured_tavern" name="Cultured Tavern" /> | *Cultured Tavern* |
+| <Mob mob="minecraft:cow_adult" type="mobs" :size="2" /> Корова | <Item item="minecraft::music_disc_lo_phi_roots" name="Roots" /> | *Roots* |
+| <Mob mob="minecraft:pig_adult" type="mobs" :size="2" /> Свиня | <Item item="minecraft::music_disc_lo_phi_tuning_cylinder_the_seraphs" name="Tuning Cylinder of the Seraphs" /> | *Tuning Cylinder of the Seraphs* |
+| <Mob mob="minecraft:goat_adult" type="mobs" :size="2" /> Коза | <Item item="minecraft::music_disc_lo_phi_vintage_story" name="Vintage Story" /> | *Vintage Story* |
 
 <Clear/>
 
@@ -30,4 +30,4 @@ authors:
 
 ## Додатково
 
-Усі платівки є частиною кастомного паку `m4sub_pack`, який вбудований на сервері. Вам не потрібно нічого встановлювати — просто приєднайтесь і грайте.
+Усі платівки є частиною кастомного паку `minecraft:`, який вбудований на сервері. Вам не потрібно нічого встановлювати — просто приєднайтесь і грайте.
