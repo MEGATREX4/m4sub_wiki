@@ -17,10 +17,10 @@ authors:
 
 | Тварина | Платівка | Назва |
 |--------|---------|--------|
-| <Mob name="Курка" mob="minecraft:chicken_adult" type="mobs" :size="2" /> Курка | <Item item="minecraft:music_disc_lo_phi_cultured_tavern" name="Cultured Tavern" /> | *Cultured Tavern* |
-| <Mob name="Корова" mob="minecraft:cow_adult" type="mobs" :size="2" /> Корова | <Item item="minecraft:music_disc_lo_phi_roots" name="Roots" /> | *Roots* |
-| <Mob  name="Свиня" mob="minecraft:pig_adult" type="mobs" :size="2" /> Свиня | <Item item="minecraft:music_disc_lo_phi_tuning_cylinder_the_seraphs" name="Tuning Cylinder of the Seraphs" /> | *Tuning Cylinder of the Seraphs* |
-| <Mob name="Козел" mob="minecraft:goat_adult" type="mobs" :size="2" /> Коза | <Item item="minecraft:music_disc_lo_phi_vintage_story" name="Vintage Story" /> | *Vintage Story* |
+| <Mob name="Курка" mob="minecraft:chicken_adult" type="mobs" :size="2" /> | <Item item="minecraft:music_disc_lo_phi_cultured_tavern" name="Cultured Tavern" /> | *Cultured Tavern* |
+| <Mob name="Корова" mob="minecraft:cow_adult" type="mobs" :size="2" /> | <Item item="minecraft:music_disc_lo_phi_roots" name="Roots" /> | *Roots* |
+| <Mob  name="Свиня" mob="minecraft:pig_adult" type="mobs" :size="2" /> | <Item item="minecraft:music_disc_lo_phi_tuning_cylinder_the_seraphs" name="Tuning Cylinder of the Seraphs" /> | *Tuning Cylinder of the Seraphs* |
+| <Mob name="Козел" mob="minecraft:goat_adult" type="mobs" :size="2" /> | <Item item="minecraft:music_disc_lo_phi_vintage_story" name="Vintage Story" /> | *Vintage Story* |
 
 <Clear/>
 
