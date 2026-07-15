@@ -1,0 +1,96 @@
+@import "tailwindcss";
+@import "@hackernoon/pixel-icon-library/fonts/iconfont.css";
+
+@font-face {
+  font-family: 'Minecraft';
+  src: url('https://raw.githubusercontent.com/MEGATREX4/m4sub_wiki/main/assets/Minecraft.ttf') format('truetype');
+}
+
+@layer base {
+  body {
+    background-color: #0a0a12;
+    color: #f0d4e6;
+    margin: 0;
+    padding: 0;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Minecraft', monospace, sans-serif;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #0a0a12;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #4a1f38;
+    border-radius: 0;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #c5629a;
+  }
+}
+
+@layer utilities {
+  .minecraftFont {
+    font-family: 'Minecraft', monospace, sans-serif !important;
+  }
+
+  .pixel-text-shadow {
+    text-shadow: 3px 3px 0 #000, -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000;
+  }
+}
+
+.mdx-content ol li {
+  display: list-item;
+  list-style-type: decimal;
+  margin-left: 1rem;
+}
+.mdx-content ol li::before {
+  content: none;
+}
+
+@keyframes shine {
+  0% { transform: translateX(-100%) translateY(-100%); }
+  100% { transform: translateX(100%) translateY(100%); }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.mdx-content tbody tr:nth-child(even) {
+  background: rgba(197, 98, 154, 0.04);
+}
+
+.infobox table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: 'Minecraft', monospace, sans-serif;
+  margin: 0;
+}
+
+.infobox td {
+  padding: 10px 14px;
+  border: 1px solid #4a1f38;
+  vertical-align: top;
+}
+
+.infobox tr:nth-child(even) {
+  background: rgba(197, 98, 154, 0.06);
+}
+
+.infobox td:first-child {
+  background: #1a0f1f;
+  color: #f390d0;
+  font-weight: bold;
+  width: 38%;
+  border-right: 2px solid #4a1f38;
+}
+
+.infobox td:last-child {
+  color: #f0d4e6;
+}
