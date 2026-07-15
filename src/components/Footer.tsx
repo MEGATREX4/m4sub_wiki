@@ -13,15 +13,15 @@ const socialLinks = [
 ];
 
 const documentLinks = [
-  { to: "/terms", label: "Умови" },
-  { to: "/privacy", label: "Конфіденційність" },
-  { to: "/materials", label: "Матеріали" },
+  { to: "https://www.m4sub.click/terms", label: "Умови" },
+  { to: "https://www.m4sub.click/privacy", label: "Конфіденційність" },
+  { to: "https://www.m4sub.click/materials", label: "Матеріали" },
 ];
 
 const navLinks = [
-  { to: "/health", label: "Статус" },
-  { to: "/roadmap", label: "Дорожня карта" },
-  { to: "/donate", label: "Магазин" },
+  { to: "https://www.m4sub.click/health", label: "Статус" },
+  { to: "https://www.m4sub.click/roadmap", label: "Дорожня карта" },
+  { to: "https://www.m4sub.click/donate", label: "Магазин" },
 ];
 
 const linkClass = "text-gray-500 hover:text-[#c5629a] transition-colors !text-sm leading-snug";
