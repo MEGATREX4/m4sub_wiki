@@ -4,15 +4,14 @@ import Icon from './Icon';
 export interface InfoboxProps {
   title?: string;
   subtitle?: string;
-  type?: string; // 'mob' | 'item' | 'block' | 'structure' або довільний текст
+  type?: string;
   image?: string;
   icon?: string;
   caption?: string;
   children?: React.ReactNode;
-  [key: string]: any; // Дозволяє передавати будь-які характеристики (hp, drops, damage тощо)
+  [key: string]: any;
 }
 
-// Словник автоматичного перекладу ключів атрибутів українською
 const knownLabels: Record<string, string> = {
   hp: 'Здоров\'я',
   health: 'Здоров\'я',
@@ -39,7 +38,6 @@ export default function Infobox({
   children,
   ...restAttrs
 }: InfoboxProps) {
-  // Фільтруємо динамічні атрибути для створення рядків таблиці
   const dynamicRows = Object.entries(restAttrs).filter(
     ([key, val]) =>
       val !== undefined &&
@@ -50,26 +48,24 @@ export default function Infobox({
 
   return (
     <aside className="infobox my-4 md:float-right md:ml-6 md:mb-6 w-full md:w-80 clear-right z-10 border-2 border-[#c5629a] bg-[#130217]">
-      {/* Заголовок Інфобоксу */}
       {(title || subtitle || type) && (
         <div className="bg-[#1f0d22] p-3 text-center border-b-2 border-[#4a1f38]">
           <div className="flex items-center justify-center gap-2">
             {icon && <Icon name={icon} size={24} />}
             {title && (
-              <h3 className="minecraftFont text-xl font-bold text-[#f390d0] leading-tight">
+              <h3 className="minecraftFont text-xl font-bold text-[#f390d0] leading-tight break-words">
                 {title}
               </h3>
             )}
           </div>
           {(subtitle || type) && (
-            <span className="inline-block mt-1.5 text-[10px] minecraftFont uppercase tracking-widest text-[#c5629a] bg-[#0a0a12] px-2 py-0.5 border border-[#4a1f38]">
+            <span className="inline-block mt-1.5 text-[10px] minecraftFont uppercase tracking-widest text-[#c5629a] bg-[#0a0a12] px-2 py-0.5 border border-[#4a1f38] break-words">
               {subtitle || type}
             </span>
           )}
         </div>
       )}
 
-      {/* Картинка / Текстура предмета або моба */}
       {image && (
         <div className="p-4 bg-[#0a0a12] border-b-2 border-[#4a1f38] flex flex-col items-center justify-center">
           <img
@@ -79,16 +75,15 @@ export default function Infobox({
             style={{ imageRendering: 'pixelated' }}
           />
           {caption && (
-            <p className="mt-2 text-center text-xs text-gray-400 italic">
+            <p className="mt-2 text-center text-xs text-gray-400 italic break-words">
               {caption}
             </p>
           )}
         </div>
       )}
 
-      {/* Динамічна таблиця атрибутів */}
       {dynamicRows.length > 0 && (
-        <table className="w-full text-xs text-left border-collapse">
+        <table className="w-full text-xs text-left border-collapse table-fixed">
           <tbody>
             {dynamicRows.map(([key, val], index) => {
               const labelText = knownLabels[key.toLowerCase()] || key;
@@ -99,10 +94,10 @@ export default function Infobox({
                     index % 2 === 0 ? 'bg-[#1a0f1f]' : 'bg-[#0a0a12]/60'
                   }`}
                 >
-                  <td className="p-2.5 font-bold text-[#f390d0] minecraftFont uppercase border-r-2 border-[#4a1f38] w-[38%] align-top">
+                  <td className="p-2.5 font-bold text-[#f390d0] minecraftFont uppercase border-r-2 border-[#4a1f38] w-[38%] align-top break-words overflow-wrap-break-word">
                     {labelText}
                   </td>
-                  <td className="p-2.5 text-[#f0d4e6] leading-snug align-top">
+                  <td className="p-2.5 text-[#f0d4e6] leading-snug align-top break-words overflow-wrap-break-word word-break-all">
                     {String(val)}
                   </td>
                 </tr>
@@ -112,8 +107,7 @@ export default function Infobox({
         </table>
       )}
 
-      {/* Вкладений вміст (якщо всередині тегу <Infobox> передали свій HTML чи Markdown) */}
-      {children && <div className="p-2 text-xs text-[#f0d4e6]">{children}</div>}
+      {children && <div className="p-2 text-xs text-[#f0d4e6] break-words">{children}</div>}
     </aside>
   );
 }
