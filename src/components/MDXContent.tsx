@@ -5,7 +5,7 @@ import type { Components } from 'react-markdown';
 import InfoBlock from './InfoBlock';
 import StatBox from './StatBox';
 import Card from './Card';
-import Infobox from './Infobox'; // <--- Новий імпорт
+import Infobox from './Infobox';
 
 interface MDXContentProps {
   content: string;
@@ -204,7 +204,7 @@ function getMarkdownComponents(): Components {
       if (isInline) {
         return (
           <code
-            className="px-2 py-1  text-sm font-mono"
+            className="px-2 py-1 text-sm font-mono"
             style={{ backgroundColor: '#1f0d22', color: '#f390d0' }}
           >
             {children}
@@ -214,7 +214,7 @@ function getMarkdownComponents(): Components {
 
       return (
         <pre
-          className="my-4 p-4  overflow-x-auto"
+          className="my-4 p-4 overflow-x-auto"
           style={{ backgroundColor: '#0a0a12', border: '1px solid #4a1f38' }}
         >
           <code className="font-mono text-sm" style={{ color: '#d1d5db' }}>
@@ -226,7 +226,7 @@ function getMarkdownComponents(): Components {
 
     pre: ({ children }) => (
       <pre
-        className="my-4 p-4  overflow-x-auto"
+        className="my-4 p-4 overflow-x-auto"
         style={{ backgroundColor: '#0a0a12', border: '1px solid #4a1f38' }}
       >
         {children}
@@ -296,7 +296,7 @@ function getMarkdownComponents(): Components {
           src={props.src}
           alt={props.alt}
           title={props.title}
-          className="max-w-full "
+          className="max-w-full"
           style={{ border: '2px solid #4a1f38', imageRendering: 'pixelated' }}
         />
         {props.alt && (
@@ -318,7 +318,7 @@ function getMarkdownComponents(): Components {
 
 export default function MDXContent({ content }: MDXContentProps) {
   return (
-    <div className="mdx-content">
+    <div className="mdx-content flow-root">
       {parseComponents(content)}
     </div>
   );

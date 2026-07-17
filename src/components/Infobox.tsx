@@ -47,7 +47,7 @@ export default function Infobox({
   );
 
   return (
-    <aside className="infobox my-4 md:float-right md:ml-6 md:mb-6 w-full md:w-80 clear-right z-10 border-2 border-[#c5629a] bg-[#130217]">
+    <aside className="infobox my-4 md:float-right md:ml-6 md:mb-6 w-full md:w-80 clear-right border-2 border-[#c5629a] bg-[#130217]">
       {(title || subtitle || type) && (
         <div className="bg-[#1f0d22] p-3 text-center border-b-2 border-[#4a1f38]">
           <div className="flex items-center justify-center gap-2">
